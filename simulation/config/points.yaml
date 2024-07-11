@@ -1,0 +1,6 @@
+YAML: 1.0
+points_num: 10000
+y_base: -4.5
+start_point: [14.2, -2.52, 1.4]
+end_point: [199.8, -2.91, 2.2]
+mid_point: [110.3, -2.63, -0.7]
