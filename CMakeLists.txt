@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.5)
 project(curve_model)
 
-set(DEFAULT_BUILD_TYPE "Debug")
+set(DEFAULT_BUILD_TYPE "Release")
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_FLAGS "-w")
 set(CMAKE_CXX_FLAGS_RELEASE "-O2 -g -ggdb ${CMAKE_CXX_FLAGS}")
@@ -15,9 +15,18 @@ set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/lib)
 find_package(yaml-cpp REQUIRED)
 include_directories(${yaml-cpp_INCLUDE_DIRS})
 
+# Ceres
+set(Ceres_DIR /home/zyp/bin/Ceres-2.1.0/lib/cmake/Ceres)
+find_package(Ceres REQUIRED)
+include_directories(${CERES_INCLUDE_DIRS})
+
 # eigen 3
 find_package(Eigen3 REQUIRED)
 include_directories(${EIGEN3_INCLUDE_DIRS})
+
+# glog
+find_package(Glog REQUIRED)
+include_directories(${Glog_INCLUDE_DIRS})
 
 # gflags
 find_package(gflags REQUIRED)
@@ -29,5 +38,7 @@ include_directories(${OpenCV_INCLUDE_DIRS})
 
 include_directories(camera)
 include_directories(fileio)
+include_directories(line)
 
+add_subdirectory(model)
 add_subdirectory(simulation)

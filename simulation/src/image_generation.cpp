@@ -25,6 +25,9 @@ DEFINE_bool(debug, false, "是否输出点坐标调试信息");
 int main(int argc, char **argv)
 {
     google::ParseCommandLineFlags(&argc, &argv, true);
+    google::InitGoogleLogging(argv[0]);
+    FLAGS_stderrthreshold = google::WARNING;
+    FLAGS_colorlogtostderr = true;
 
     std::string camera_yaml_file = FLAGS_camera_yaml_file;
     std::string input_points_file = FLAGS_input_points_file;

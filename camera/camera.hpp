@@ -1,6 +1,6 @@
 /**
  * @file   camera.hpp
- * @brief  This file defined camera model(pinhole).
+ * @brief  This file defines camera model(pinhole).
  * @author Yipeng Zhao
  * @date   2024-07
  */
@@ -12,6 +12,8 @@
 #include <Eigen/Dense>
 #include <opencv2/core/core.hpp>
 #include <yaml-cpp/yaml.h>
+#include <glog/logging.h>
+#include <memory>
 
 class Camera {
 public:
@@ -20,11 +22,11 @@ public:
     /// @brief  read intrinsic parameters
     bool readIntrinsicParameters(const std::string& filename)
     {
-        // std::cout << "camera yaml file:" << filename << "\n";
+        LOG(INFO) << "camera yaml file:" << filename << "\n";
         cv::FileStorage fs(filename, cv::FileStorage::READ);
 
         if (!fs.isOpened()) {
-            std::cout << "Open YAML file failed!\n";
+            LOG(ERROR) << "Open YAML file failed!\n";
             return false;
         }
 
@@ -36,7 +38,7 @@ public:
             fs["model_type"] >> model_type;
             
             if (model_type.compare("PINHOLE") != 0) {
-                std::cout << "Wrong camera model. Just support pinhole camera now.\n";
+                LOG(ERROR) << "Wrong camera model. Just support pinhole camera now.\n";
                 return false;
             }
         }

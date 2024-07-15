@@ -14,7 +14,8 @@
 #include <Eigen/Dense>
 #include <opencv2/core/core.hpp>
 
-void outputPoints(const std::string &file_name, const std::vector<cv::Point2f> &points)
+template <typename T>
+void outputPoints(const std::string &file_name, const std::vector<cv::Point_<T>> &points)
 {
     std::ofstream out_file(file_name, std::ios::out);
     if (!out_file.is_open())

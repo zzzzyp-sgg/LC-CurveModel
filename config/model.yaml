@@ -1,0 +1,29 @@
+YAML: 1.0
+
+# line number
+line_num: 1
+
+# input lidar points file
+lidar_points_file: "/home/zyp/Lidar/LC-CurveModel/simulation/data/lidar_points.txt"
+
+# camera yaml
+cam_calib: "cam0.yaml"
+
+# the known end point
+end_point: [199.809, -4.48936, 2.19321]
+
+# image path
+image_path: "/home/zyp/Lidar/LC-CurveModel/simulation/data/image.png"
+
+# image curve degree
+curve_degree: 9
+
+# lidar-camera extrinsic
+T_cam_lidar:
+  rows: 4
+  cols: 4
+  dt: d
+  data: [0.0, -1.0, 0.0, -0.5,
+         0.0, 0.0, -1.0, 0.2,
+         1.0, 0.0, 0.0, 0.0,
+         0.0, 0.0, 0.0, 1.0]
