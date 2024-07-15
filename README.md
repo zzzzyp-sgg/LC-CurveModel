@@ -2,7 +2,8 @@
 <!-- markdownlint-disable MD047 -->
 This is a simulation library for Lidar point cloud and image curve fitting, the code realizes the simulation of laser point cloud, the simulation of corresponding projected image and the curve fitting process in Lidar coordinate system and image coordinate system.  
 
-![9-degree](/image/9-degree.png){width="50%"}
+![9-degree](/image/9-degree.png){width="50%"}  
+
 ![curve-fitting](/image/curve-fitting.png){width="50%"}
 
 ## Dependencies
